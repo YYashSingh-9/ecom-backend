@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { default: slugify } = require("slugify");
+
 const CartSchema = new mongoose.Schema({
   productId: {
     type: mongoose.Schema.ObjectId,
@@ -36,17 +36,11 @@ const CartSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Quantity of a product should be there."],
   },
-  slug: String,
+
   totalPrice: {
     type: Number,
     required: [true, "Please fill total price of this product."],
   },
-});
-
-CartSchema.pre("save", function (next) {
-  this.slug = slugify(this.title, { lower: true });
-  next();
-  console.log(this);
 });
 
 const Cart = mongoose.model("Cart", CartSchema);

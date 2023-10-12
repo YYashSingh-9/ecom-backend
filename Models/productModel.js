@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { default: slugify } = require("slugify");
 const ProductSchema = new mongoose.Schema({
   key: {
     type: Number,
@@ -35,12 +34,6 @@ const ProductSchema = new mongoose.Schema({
   },
   slug: String,
   totalPrice: Number,
-});
-
-ProductSchema.pre("save", function (next) {
-  this.slug = slugify(this.title, { lower: true });
-  next();
-  console.log(this);
 });
 
 const Product = mongoose.model("Product", ProductSchema);

@@ -52,7 +52,6 @@ UserSchema.pre("save", async function (next) {
 
   //Removing this because it was just for confirmation from user and we will not hash this also
   this.passwordConfirm = undefined;
-  console.log(this.password);
   next();
 });
 
