@@ -22,7 +22,6 @@ const app = express();
 // * Global middleware (CORS) (Cross Origin Resource Sharing)
 app.use(
   cors({
-    credentials: true,
     exposedHeaders: ["SET-COOKIE"],
     methods: ["PATCH", "GET", "PUT", "POST", "HEAD", "DELETE"],
   })
